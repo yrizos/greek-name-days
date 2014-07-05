@@ -144,7 +144,7 @@ class GreekNameDays
         return $this->execute("getbymonth.php", $options);
     }
 
-    private function execute($script, array $options)
+    protected function execute($script, array $options)
     {
         $url      = $this->getRequestUrl($script, $options);
         $response = $this->fetchResponse($url);
@@ -159,7 +159,7 @@ class GreekNameDays
         return $response;
     }
 
-    private function fetchResponse($url)
+    protected function fetchResponse($url)
     {
         $curl = curl_init();
 
