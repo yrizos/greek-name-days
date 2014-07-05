@@ -6,6 +6,12 @@ Client for the [GreekNameDays API](http://www.greeknamedays.gr/). The API requir
 - http://www.greeknamedays.gr/greeknamedaystools.php
 - http://www.greeknamedays.gr/docs/webservice.pdf
 
+## Install
+
+[Composer](https://getcomposer.org/):
+
+    require: "yrizos/greek-name-days": "0.1.*"
+
 ## Usage
 
     $username = "<your username>";
