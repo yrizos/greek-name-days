@@ -82,15 +82,63 @@ class GreekNameDays
                 : null;
     }
 
+    public function getByName($name, $year = null)
+    {
+        if (is_null($year)) $year = date("Y");
+
+        $name = trim($name);
+        if (strlen($name) < 3) throw new \RuntimeException("Name length must be larger than 3 characters.");
+
+        $options =
+            [
+                "cyear" => (int) $year,
+                "cname" => $name,
+            ];
+
+        return $this->execute("getbyname.php", $options);
+    }
+
+    public function getByInitial($initial, $year = null)
+    {
+        if (is_null($year)) $year = date("Y");
+
+        $initial = trim($initial);
+        if (strlen($initial) != 1) throw new \RuntimeException("Initial length must be 1 character.");
+
+        $options =
+            [
+                "cyear" => (int) $year,
+                "ab"    => $initial,
+            ];
+
+        return $this->execute("getbyinitial.php", $options);
+    }
+
     public function getByMonth($year = null, $month = null)
     {
         if (is_null($year)) $year = date("Y");
-        if (is_null($month)) $month = date("j");
+        if (is_null($month)) $month = date("n");
 
         $options =
             [
                 "cyear"  => (int) $year,
                 "cmonth" => (int) $month,
+            ];
+
+        return $this->execute("getbymonth.php", $options);
+    }
+
+    public function getByDate($year = null, $month = null, $day = null)
+    {
+        if (is_null($year)) $year = date("Y");
+        if (is_null($month)) $month = date("n");
+        if (is_null($day)) $day = date("j");
+
+        $options =
+            [
+                "cyear"  => (int) $year,
+                "cmonth" => (int) $month,
+                "cday"   => (int) $day,
             ];
 
         return $this->execute("getbymonth.php", $options);
