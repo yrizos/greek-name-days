@@ -1,0 +1,21 @@
+{
+    "name": "yrizos/GreekNameDays",
+    "type": "library",
+    "license": "MIT",
+    "description": "Client for the GreekNameDays API.",
+    "authors": [
+        {
+            "name": "Yannis Rizos",
+            "email": "yrizos@gmail.com",
+            "homepage": "https://github.com/yrizos/GreekNameDays"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "GreekNameDays": "library/"
+        }
+    }
+}
