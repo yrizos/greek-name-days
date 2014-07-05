@@ -10,7 +10,7 @@ Client for the [GreekNameDays API](http://www.greeknamedays.gr/). The API requir
 
 [Composer](https://getcomposer.org/):
 
-    require: "yrizos/greek-name-days": "0.1.*"
+    require: "yrizos/greek-name-days": "dev-master"
 
 ## Usage
 
