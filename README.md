@@ -8,7 +8,9 @@ Client for the [GreekNameDays API](http://www.greeknamedays.gr/). The API requir
 
 ## Install
 
-[Composer](https://getcomposer.org/): `require: "yrizos/greek-name-days": "dev-master"`
+[Composer](https://getcomposer.org/):
+
+    require: "yrizos/greek-name-days": "dev-master"
 
 ## Usage
 
