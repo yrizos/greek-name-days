@@ -1,5 +1,5 @@
 {
-    "name": "yrizos/GreekNameDays",
+    "name": "yrizos/greek-name-days",
     "type": "library",
     "license": "MIT",
     "description": "Client for the GreekNameDays API.",
