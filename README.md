@@ -14,17 +14,20 @@ Client for the [GreekNameDays API](http://www.greeknamedays.gr/). The API requir
 
 ## Usage
 
-    $username = "<your username>";
-    $password = "<your password>";
-    $language = "gr";
+```php
+use GreekNameDays\GreekNameDays;
 
-    $gnd = new GreekNameDays($username, $password, $language);
+$username = "<your username>";
+$password = "<your password>";
+$language = "gr";
 
-    $resultsByDate    = $gnd->getByDate(2014, 7, 1);
-    $resultsByMonth   = $gnd->getByMonth(2014, 7);
-    $resultsByInitial = $gnd->getByInitial("i");
-    $resultsByName    = $gnd->getByName("ioannis");
+$gnd = new GreekNameDays($username, $password, $language);
 
+$resultsByDate    = $gnd->getByDate(2014, 7, 1);
+$resultsByMonth   = $gnd->getByMonth(2014, 7);
+$resultsByInitial = $gnd->getByInitial("i");
+$resultsByName    = $gnd->getByName("ioannis");
+```
 
 
 
