@@ -196,5 +196,4 @@ class GreekNameDays
         return $url;
     }
 
-
 }
