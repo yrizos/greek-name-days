@@ -18,7 +18,7 @@ Client for the [GreekNameDays API](http://www.greeknamedays.gr/). The API requir
     $password = "<your password>";
     $language = "gr";
 
-    $gnd = new GreekNameDays($username, $password, "gr");
+    $gnd = new GreekNameDays($username, $password, $language);
 
     $resultsByDate    = $gnd->getByDate(2014, 7, 1);
     $resultsByMonth   = $gnd->getByMonth(2014, 7);
