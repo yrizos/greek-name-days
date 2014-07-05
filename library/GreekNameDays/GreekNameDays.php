@@ -5,7 +5,7 @@ namespace GreekNameDays;
 class GreekNameDays
 {
     const USER_AGENT  = "GreekNameDays";
-    const VERSION     = "1.0";
+    const VERSION = "0.1";
     const ENDPOINT    = "http://www.greeknamedays.gr/tools/api/";
     const LANGUAGE_GR = "gr";
     const LANGUAGE_EN = "en";
