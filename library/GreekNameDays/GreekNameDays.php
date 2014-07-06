@@ -17,13 +17,14 @@ class GreekNameDays
             "langid" => self::LANGUAGE_GR
         ];
 
-    public function __construct($username, $password, $language = self::LANGUAGE_GR)
+    public function __construct($username, $password, $language = null)
     {
         if (!extension_loaded("curl")) throw new \RuntimeException("curl is not loaded.");
 
         $this->setUsername($username)
-             ->setPassword($password)
-             ->setLanguage($language);
+            ->setPassword($password);
+
+        if (!is_null($language)) $this->setLanguage($language);
     }
 
     public function setUsername($username)
@@ -82,7 +83,7 @@ class GreekNameDays
                 : null;
     }
 
-    public function getByName($name, $year = null)
+    public function getByName($name, $year = null, $language = null)
     {
         if (is_null($year)) $year = date("Y");
 
@@ -95,10 +96,10 @@ class GreekNameDays
                 "cname" => $name,
             ];
 
-        return $this->execute("getbyname.php", $options);
+        return $this->execute("getbyname.php", $options, $language);
     }
 
-    public function getByInitial($initial, $year = null)
+    public function getByInitial($initial, $year = null, $language = null)
     {
         if (is_null($year)) $year = date("Y");
 
@@ -111,10 +112,10 @@ class GreekNameDays
                 "ab"    => $initial,
             ];
 
-        return $this->execute("getbyinitial.php", $options);
+        return $this->execute("getbyinitial.php", $options, $language);
     }
 
-    public function getByMonth($year = null, $month = null)
+    public function getByMonth($year = null, $month = null, $language = null)
     {
         if (is_null($year)) $year = date("Y");
         if (is_null($month)) $month = date("n");
@@ -125,10 +126,10 @@ class GreekNameDays
                 "cmonth" => (int) $month,
             ];
 
-        return $this->execute("getbymonth.php", $options);
+        return $this->execute("getbymonth.php", $options, $language);
     }
 
-    public function getByDate($year = null, $month = null, $day = null)
+    public function getByDate($year = null, $month = null, $day = null, $language = null)
     {
         if (is_null($year)) $year = date("Y");
         if (is_null($month)) $month = date("n");
@@ -141,12 +142,12 @@ class GreekNameDays
                 "cday"   => (int) $day,
             ];
 
-        return $this->execute("getbydate.php", $options);
+        return $this->execute("getbydate.php", $options, $language);
     }
 
-    protected function execute($script, array $options)
+    protected function execute($script, array $options, $language = null)
     {
-        $url      = $this->getRequestUrl($script, $options);
+        $url = $this->getRequestUrl($script, $options, $language);
         $response = $this->fetchResponse($url);
 
         if (isset($response->error)) {
@@ -180,8 +181,10 @@ class GreekNameDays
         return $response;
     }
 
-    private function getRequestUrl($script, array $options)
+    private function getRequestUrl($script, array $options, $language = null)
     {
+        if (!is_null($language)) $this->setLanguage($language);
+
         $url     = self::ENDPOINT . urlencode($script) . "?";
         $options = array_merge($this->options, $options);
 
