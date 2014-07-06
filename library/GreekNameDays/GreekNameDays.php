@@ -141,7 +141,7 @@ class GreekNameDays
                 "cday"   => (int) $day,
             ];
 
-        return $this->execute("getbymonth.php", $options);
+        return $this->execute("getbydate.php", $options);
     }
 
     protected function execute($script, array $options)
