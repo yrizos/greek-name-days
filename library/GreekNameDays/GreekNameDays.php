@@ -53,6 +53,7 @@ class GreekNameDays
 
     public function setLanguage($language)
     {
+        if ($language == "el") $language = "gr";
         if (!in_array($language, [self::LANGUAGE_EN, self::LANGUAGE_GR])) $language = self::LANGUAGE_GR;
 
         $this->setOption("langid", $language);
